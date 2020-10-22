@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //native构造器
+        console.log(  Boolean.__proto__ === Function.prototype); //true
+        console.log(Number.__proto__ === Function.prototype); // true
+        console.log(String.__proto__ === Function.prototype);  // true
+        console.log( Object.__proto__ === Function.prototype); // true
+        console.log(Function.__proto__ === Function.prototype);  // true
+        console.log(Array.__proto__ === Function.prototype); // true
+        console.log(RegExp.__proto__ === Function.prototype); // true
+        console.log(Error.__proto__ === Function.prototype);  // true
+        console.log(Date.__proto__ === Function.prototype);// true
+
+        console.log(Function.prototype);
+  
+       //自定义构造器
+         //原型对象方式
+         function Person(name,age){
+          this.uname = name;
+          this.age = age;
+        }
+        Person.prototype.intr = function(){
+              console.log(`我是${this.uname}`);
+          }
+        
+        console.log(Person.__proto__ === Function.prototype);  //true
+        
+        console.log(typeof Function.prototype) // function
+        console.log(typeof Object.prototype)   // object
+        console.log(typeof Number.prototype)   // object
+        console.log(typeof Boolean.prototype)  // object
+        console.log(typeof String.prototype)   // object
+        console.log(typeof Array.prototype)    // object
+        console.log(typeof RegExp.prototype)   // object
+        console.log(typeof Error.prototype)    // object
+        console.log(typeof Date.prototype)     // object
+        console.log(typeof Object.prototype)   // object
+        
+    </script>
+</body>
+</html>

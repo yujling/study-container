@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <button id='btn'>請求xiaoling_Demo.html頁面</button>
+    <script>
+        //封装异步对象
+function CreateXmlHttp() {
+
+    //非IE浏览器创建XmlHttpRequest对象
+    if (window.XmlHttpRequest) {
+        return new XMLHttpRequest();
+    }
+
+    //IE浏览器创建XmlHttpRequest对象
+    //主要针对老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象
+    if (window.ActiveXObject) {
+        try {
+            return new  ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch (e) {
+            try {
+            return new ActiveXObject("msxml2.XMLHTTP");
+            }
+            catch (ex) { }
+        }
+    }
+}
+ var btn = document.getElementById('btn');
+ btn.onclick = function(){
+        var xmlHttp = new XMLHttpRequest();  //①创建异步对象  
+    xmlHttp.onreadystatechange = function(){  
+        //④对服务器的响应过程进行监听，响应成功则对响应数据进行处理
+        if(xmlHttp.readyState === 4 && xmlHttp.status === 200){ 
+        var data = xmlHttp.responseText;//获取异步返回的数据
+            //前端对数据处理
+        }
+    }
+    xmlHttp.open('GET','xiaoling_Demo.html',false);//②调用open()方法并采用异步方式   xmlhttp.open("GET","test1.txt",true);
+    xmlHttp.send(); //③使用open()方法将请求发送出去
+}
+
+
+    </script>
+</body>
+</html>

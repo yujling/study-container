@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原型对象方式
+         function Person(name,age){
+          this.uname = name;
+          this.age = age;
+      }
+      Person.prototype.intr = function(){
+              console.log(`我是${this.uname}`);
+          }
+        //创建实例
+       var p1 = new Person('xiaoling',18),
+           p2 = new Person('小张',20),
+           p3 = new Person('小刘',23);
+           console.log(p1); //Person {name: "xiaoling", age: 18}
+          console.log(p2); //Person {name: "小张", age: 20}
+          console.log(p3); //Person {name: "小刘", age: 23}
+
+          console.log(Person.prototype === p1.__proto__);
+          console.log(Person.prototype === p2.__proto__);
+          console.log(Person.prototype === p3.__proto__);
+          
+          
+          p1.intr()
+          p2.intr()
+          p3.intr()
+          console.log(Person.prototype.constructor === Person); //true
+          console.log(p1.__proto__.constructor === Person);//true
+          console.log(p2.__proto__.constructor === Person);//true
+          console.log(p3.__proto__.constructor === Person);//true
+          
+          
+    </script>
+</body>
+</html>

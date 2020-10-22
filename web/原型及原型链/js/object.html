@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    111
+    <script>
+        // var aGirl = {};
+        // aGirl.name = "小玲";
+        // aGirl.age = 18;
+        // aGirl.intr = function(){
+        //     console.log('我是小仙女.'); 
+        // }
+   
+        // var aGirl = {
+        //     name :"小玲",
+        //     age : 18,
+        //     intr :function(){
+        //     console.log('我是小仙女.');    
+        //    }
+        // }
+
+        // console.log(aGirl);//{name: "小玲", age: 18}
+        // console.log(aGirl.name); //小玲
+        // aGirl.intr(); //我是小仙女。
+        //1.字面量方式
+        var person = {
+            uname:"xiaoling",
+            age:18,
+            intr:function(){
+                 console.log('我是'+this.uname)
+                 console.log(`我是${this.uname}`)
+                 }
+        };
+        // var person1 = {
+        //     uname:"小张",
+        //     age:20,
+        //     intr:function(){
+        //          console.log('我是小张')}
+        // };
+        // var person2 = {
+        //     uname:"小刘",
+        //     age:23,
+        //     intr:function(){
+        //          console.log('我是小刘')}
+        // };
+        // var person3 = {
+        //     uname:"小苏",
+        //     age:24,
+        //     intr:function(){
+        //          console.log('我是小苏')}
+        // };
+       console.log(person);
+       person.intr() //调用方法
+        //2.构造函数模式
+        //创建构造函数 Person    uname/age/intr 是实例成员
+      function Person(name,age){
+          this.uname = name;
+          this.age = age;
+
+          this.intr = function(){
+              console.log(`我是${this.uname}`);
+          }
+      }
+        //创建实例
+       var p1 = new Person('xiaoling',18),
+           p2 = new Person('小张',20),
+           p3 = new Person('小刘',23);
+
+          console.log(p1); //Person {name: "xiaoling", age: 18, intr: ƒ}
+          console.log(p2); //Person {name: "小张", age: 20, intr: ƒ}
+          console.log(p3); //Person {name: "小刘", age: 23, intr: ƒ}
+        //调用方法
+          p1.intr(); //我是xiaoling
+          p2.intr(); //我是小张
+          p3.intr(); //我是小刘
+           console.log(Person.intr); //undefined
+
+           Person.sex = '女';   //sex是静态成员
+           console.log(Person.sex); //女
+           console.log(p1.sex);  //undefined
+           
+           
+            
+          
+        
+    </script>
+</body>
+</html>
